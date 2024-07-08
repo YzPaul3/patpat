@@ -29,7 +29,6 @@ async function page({ params }: { params: { id: string } }) {
           parentId={thread.parentId}
           content={thread.text}
           authorId={thread.authorId}
-          community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
         />
@@ -52,7 +51,6 @@ async function page({ params }: { params: { id: string } }) {
             parentId={childItem.parentId}
             content={childItem.text}
             authorId={childItem.authorId}
-            community={childItem.community}
             createdAt={childItem.createdAt}
             comments={childItem.children}
             isComment

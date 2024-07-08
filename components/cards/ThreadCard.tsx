@@ -14,11 +14,6 @@ interface Props {
     image: string;
     id: string;
   };
-  community: {
-    id: string;
-    name: string;
-    image: string;
-  } | null;
   createdAt: string;
   comments: {
     authorId: {
@@ -34,7 +29,6 @@ function ThreadCard({
   parentId,
   content,
   authorId,
-  community,
   createdAt,
   comments,
   isComment,
@@ -52,7 +46,7 @@ function ThreadCard({
             <Link href={`/profile/${authorId?.id}`} className='relative h-11 w-11'>
               <Image
                 src={authorId.image}
-                alt='user_community_image'
+                alt='user_image'
                 fill
                 className='cursor-pointer rounded-full'
               />
@@ -143,26 +137,6 @@ function ThreadCard({
             </p>
           </Link>
         </div>
-      )}
-
-      {!isComment && community && (
-        <Link
-          href={`/communities/${community.id}`}
-          className='mt-5 flex items-center'
-        >
-          <p className='text-subtle-medium text-gray-1'>
-            {formatDateString(createdAt)}
-            {community && ` - ${community.name} Community`}
-          </p>
-
-          <Image
-            src={community.image}
-            alt={community.name}
-            width={14}
-            height={14}
-            className='ml-1 rounded-full object-cover'
-          />
-        </Link>
       )}
     </article>
   );

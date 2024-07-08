@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { OrganizationSwitcher, SignOutButton, SignedIn } from "@clerk/nextjs";
+import { UserButton, SignOutButton, SignedIn } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 function Topbar() {
-
-  // const isUserLoggedIn = true;
 
   return (
     <nav className="topbar">
@@ -30,14 +28,11 @@ function Topbar() {
             </SignOutButton>
           </SignedIn>
         </div>
-        <OrganizationSwitcher
+        <UserButton
           appearance={{
             baseTheme: dark,
-            elements: {
-              organizationSwitcherTrigger: "py-2 px-4"
-            }
           }}
-        />
+        /> 
       </div>
     </nav>
   )

@@ -48,7 +48,6 @@ function PostThread({userInfo}: Props) {
         text: values.thread,
         author: userId,
         authorId: _userId,
-        communityId: organization ? organization.id : null,
         path: pathname
       })
     
